@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.test.navigation.MovieNavigation
 import com.example.test.screens.home.HomeScreen
 import com.example.test.ui.theme.TestTheme
 
@@ -30,7 +31,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MyApp {
-                HomeScreen()
+                MovieNavigation()
             }
         }
     }
@@ -38,42 +39,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp(content: @Composable () -> Unit){
-
-    var showMenu by remember{
-        mutableStateOf(false)
-    }
     TestTheme() {
-        Scaffold(
-            topBar = {
-                TopAppBar(title = {Text(text = "HomeScreen")},
-                actions = {
-                    IconButton(onClick = { showMenu = !showMenu}) {
-                        Icon(imageVector = Icons.Default.MoreVert, contentDescription = "More")
-                    }
-                    DropdownMenu(expanded = showMenu, onDismissRequest = { showMenu = false}) {
-                        DropdownMenuItem(onClick = { /*TODO*/ }) {
-                            Row{
-                                Icon(imageVector = Icons.Default.Favorite,
-                                    contentDescription = "Favorites",
-                                    modifier = Modifier.padding(4.dp))
-                                Text(text = "Favorites",
-                                     modifier = Modifier
-                                         .padding(4.dp)
-                                         .width(100.dp)
-                                )
-                            }
-
-                        }
-                    }
-                }
-                )
-            }
-        ) {
-
-
-
-            content()
-        }
+        content()
     }
 
 }
