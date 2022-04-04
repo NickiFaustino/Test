@@ -26,6 +26,36 @@ import com.example.test.screens.home.HomeScreen
 import com.example.test.ui.theme.TestTheme
 
 class MainActivity : ComponentActivity() {
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("MainActivity","On Start")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("MainActivity","On Resume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("MainActivity","On Pause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("MainActivity","On Stop")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("MainActivity","On Destroy")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
