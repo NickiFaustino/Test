@@ -14,17 +14,21 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.test.models.Movie
 import com.example.test.models.getMovies
 import com.example.test.navigation.MovieScreens
 import com.example.test.ui.theme.TestTheme
+import com.example.test.viewmodels.MovieViewModels
+import com.example.test.widgets.FavoriteIcon
 import com.example.test.widgets.MovieRow
 
 @Composable
 fun HomeScreen(navController: NavController = rememberNavController(),
-               onItemClick: (String) -> Unit = {}){
+               viewModel: MovieViewModels = viewModel()
+){
     var showMenu by remember{
         mutableStateOf(false)
     }
@@ -56,6 +60,7 @@ fun HomeScreen(navController: NavController = rememberNavController(),
 
 
             MainContent(navController = navController, getMovies())
+
         }
 
 }
